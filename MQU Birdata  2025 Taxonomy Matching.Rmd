@@ -40,6 +40,9 @@ Species names for a KBA can be obtained from ALA (https://ala.org.au/) by
 * Rename the files to identify them with their respective KBAs
 * Move the files into the './Input/ALA' folder in this project
 
+## References
+* "Fuzzy Matching in R (Example) | Approximate String, Name & Text Search | adist(), agrep() & amatch()", https://youtu.be/txHkNr29w20?si=XSQiEHiplcBrwc0x, for approximate matching using `stringdist::amatch` 
+
 # Setup
 ```{r setup}
 # Libraries
