@@ -1,0 +1,22 @@
+---
+title: "MQU Birdata  2025 Taxonomy Matching"
+author: "Michael Dear"
+date: "2025-07-07"
+output: html_document
+editor_options: 
+  chunk_output_type: inline
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Introduction
+
+# Setup
+
+# Data Preparation
+
+# Match Taxonomies
+
+# Test
