@@ -12,6 +12,10 @@ knitr::opts_chunk$set(echo = TRUE)
 ```
 
 # Introduction
+This project aims to match the Birdata (BD) taxonomy to the Atlas of Living Australia (ALA) taxonomy. The scope is all bird species identified in either BD or ALA for the given study area. The overall goal is to produce a dataset in which BD data is incorporated into the ALA data using ALA scientific and common names.
+
+## Method
+An iterative approach is taken to matching. Exact matches on either scientific name or common name are resolved first. The residual records are matched using approximate matching techniques. BD is taken as the source and is matched against ALA. A translation table is produced in which BD names are matched against ALA names. The translation table is tested on a subset of BD data and reviewed for accuracy.
 
 # Setup
 
@@ -19,4 +23,4 @@ knitr::opts_chunk$set(echo = TRUE)
 
 # Match Taxonomies
 
-# Test
+# Accuracy Assessment
