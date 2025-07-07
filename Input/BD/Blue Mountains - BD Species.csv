@@ -1,0 +1,307 @@
+Common Name,Scientific Name,Count,Reporting Rate
+Blue-billed Duck,Oxyura australis,2,0.03%
+Pink-eared Duck,Malacorhynchus membranaceus,2,0.03%
+Black Swan,Cygnus atratus,11,0.14%
+Hardhead,Aythya australis,18,0.23%
+Australasian Shoveler,Spatula rhynchotis,1,0.01%
+Pacific Black Duck,Anas superciliosa,254,3.22%
+Grey Teal,Anas gracilis,29,0.37%
+Chestnut Teal,Anas castanea,5,0.06%
+Freckled Duck,Stictonetta naevosa,3,0.04%
+Musk Duck,Biziura lobata,42,0.53%
+Australian Wood Duck,Chenonetta jubata,433,5.49%
+Australian Brush-turkey,Alectura lathami,43,0.54%
+Helmeted Guineafowl,Numida meleagris,1,0.01%
+Stubble Quail,Coturnix pectoralis,7,0.09%
+Brown Quail,Synoicus ypsilophorus,52,0.66%
+Australasian Grebe,Tachybaptus novaehollandiae,156,1.98%
+Hoary-headed Grebe,Poliocephalus poliocephalus,12,0.15%
+Great Crested Grebe,Podiceps cristatus,3,0.04%
+Rock Dove,Columba livia,30,0.38%
+White-headed Pigeon,Columba leucomela,13,0.16%
+Spotted Dove,Spilopelia chinensis,32,0.41%
+Brown Cuckoo-Dove,Macropygia phasianella,490,6.21%
+Wonga Pigeon,Leucosarcia melanoleuca,408,5.17%
+Common Bronzewing,Phaps chalcoptera,550,6.97%
+Brush Bronzewing,Phaps elegans,130,1.65%
+Crested Pigeon,Ocyphaps lophotes,226,2.86%
+Diamond Dove,Geopelia cuneata,4,0.05%
+Peaceful Dove,Geopelia placida,187,2.37%
+Bar-shouldered Dove,Geopelia humeralis,123,1.56%
+Brown-capped Emerald-Dove,Chalcophaps longirostris,7,0.09%
+Topknot Pigeon,Lopholaimus antarcticus,3,0.04%
+Pheasant Coucal,Centropus phasianinus,1,0.01%
+Eastern Koel,Eudynamys orientalis,135,1.71%
+Channel-billed Cuckoo,Scythrops novaehollandiae,215,2.72%
+Horsfield's Bronze-Cuckoo,Chalcites basalis,51,0.65%
+Black-eared Cuckoo,Chalcites osculans,5,0.06%
+Shining Bronze-Cuckoo,Chalcites lucidus,402,5.10%
+Fan-tailed Cuckoo,Cacomantis flabelliformis,1578,20.00%
+Brush Cuckoo,Cacomantis variolosus,99,1.25%
+Pallid Cuckoo,Heteroscenes pallidus,65,0.82%
+Oriental Cuckoo,Cuculus optatus,1,0.01%
+Tawny Frogmouth,Podargus strigoides,95,1.20%
+White-throated Nightjar,Eurostopodus mystacalis,30,0.38%
+Australian Owlet-nightjar,Aegotheles cristatus,145,1.84%
+White-throated Needletail,Hirundapus caudacutus,65,0.82%
+Fork-tailed Swift,Apus pacificus,7,0.09%
+Lewin's Rail,Lewinia pectoralis,10,0.13%
+Buff-banded Rail,Hypotaenidia philippensis,2,0.03%
+Spotless Crake,Zapornia tabuensis,1,0.01%
+Purple Swamphen,Porphyrio porphyrio,188,2.38%
+Dusky Moorhen,Gallinula tenebrosa,75,0.95%
+Eurasian Coot,Fulica atra,197,2.50%
+Red-necked Avocet,Recurvirostra novaehollandiae,1,0.01%
+Pied Stilt,Himantopus leucocephalus,2,0.03%
+Black-fronted Dotterel,Elseyornis melanops,9,0.11%
+Masked Lapwing,Vanellus miles,166,2.10%
+Red-kneed Dotterel,Erythrogonys cinctus,1,0.01%
+Australian Painted-Snipe,Rostratula australis,1,0.01%
+Latham's Snipe,Gallinago hardwickii,3,0.04%
+Painted Button-quail,Turnix varius,110,1.39%
+Little Button-quail,Turnix velox,1,0.01%
+Long-tailed Jaeger,Stercorarius longicaudus,3,0.04%
+Arctic Jaeger,Stercorarius parasiticus,14,0.18%
+Pomarine Jaeger,Stercorarius pomarinus,13,0.16%
+Silver Gull,Larus novaehollandiae,24,0.30%
+Pacific Gull,Larus pacificus,1,0.01%
+Kelp Gull,Larus dominicanus,13,0.16%
+Whiskered Tern,Chlidonias hybrida,1,0.01%
+White-fronted Tern,Sterna striata,2,0.03%
+Common Tern,Sterna hirundo,2,0.03%
+Greater Crested Tern,Thalasseus bergii,17,0.22%
+Little Penguin,Eudyptula minor,2,0.03%
+Indian Yellow-nosed Albatross,Thalassarche carteri,4,0.05%
+Black-browed Albatross,Thalassarche melanophris,5,0.06%
+Campbell Albatross,Thalassarche impavida,6,0.08%
+Shy Albatross,Thalassarche cauta,1,0.01%
+Northern Giant-Petrel,Macronectes halli,2,0.03%
+Cape Petrel,Daption capense,2,0.03%
+Fairy Prion,Pachyptila turtur,4,0.05%
+Providence Petrel,Pterodroma solandri,1,0.01%
+Wedge-tailed Shearwater,Ardenna pacifica,18,0.23%
+Short-tailed Shearwater,Ardenna tenuirostris,11,0.14%
+Sooty Shearwater,Ardenna grisea,2,0.03%
+Flesh-footed Shearwater,Ardenna carneipes,9,0.11%
+Streaked Shearwater,Calonectris leucomelas,1,0.01%
+Fluttering Shearwater,Puffinus gavia,15,0.19%
+Hutton's Shearwater,Puffinus huttoni,9,0.11%
+Black-necked Stork,Ephippiorhynchus asiaticus,1,0.01%
+Australian Pelican,Pelecanus conspicillatus,9,0.11%
+Australian Little Bittern,Ixobrychus dubius,1,0.01%
+Nankeen Night-Heron,Nycticorax caledonicus,8,0.10%
+Cattle Egret,Bubulcus ibis,7,0.09%
+White-necked Heron,Ardea pacifica,49,0.62%
+Great Egret,Ardea alba,12,0.15%
+Plumed Egret,Ardea plumifera,5,0.06%
+White-faced Heron,Egretta novaehollandiae,131,1.66%
+Australian White Ibis,Threskiornis moluccus,11,0.14%
+Straw-necked Ibis,Threskiornis spinicollis,22,0.28%
+Yellow-billed Spoonbill,Platalea flavipes,5,0.06%
+Royal Spoonbill,Platalea regia,1,0.01%
+Glossy Ibis,Plegadis falcinellus,2,0.03%
+Australasian Gannet,Morus serrator,7,0.09%
+Little Pied Cormorant,Microcarbo melanoleucos,92,1.17%
+Great Cormorant,Phalacrocorax carbo,63,0.80%
+Little Black Cormorant,Phalacrocorax sulcirostris,95,1.20%
+Great Pied Cormorant,Phalacrocorax varius,34,0.43%
+Australasian Darter,Anhinga novaehollandiae,43,0.54%
+Black-shouldered Kite,Elanus axillaris,34,0.43%
+Square-tailed Kite,Lophoictinia isura,19,0.24%
+Pacific Baza,Aviceda subcristata,14,0.18%
+Wedge-tailed Eagle,Aquila audax,231,2.93%
+Little Eagle,Hieraaetus morphnoides,17,0.22%
+Swamp Harrier,Circus approximans,4,0.05%
+Spotted Harrier,Circus assimilis,4,0.05%
+Grey Goshawk,Accipiter novaehollandiae,30,0.38%
+Brown Goshawk,Accipiter fasciatus,166,2.10%
+Collared Sparrowhawk,Accipiter cirrocephalus,44,0.56%
+White-bellied Sea-Eagle,Haliaeetus leucogaster,19,0.24%
+Whistling Kite,Haliastur sphenurus,14,0.18%
+Black Kite,Milvus migrans,3,0.04%
+Greater Sooty Owl,Tyto tenebricosa,22,0.28%
+Masked Owl,Tyto novaehollandiae,4,0.05%
+Barn Owl,Tyto alba,8,0.10%
+Powerful Owl,Ninox strenua,53,0.67%
+Barking Owl,Ninox connivens,28,0.35%
+Southern Boobook,Ninox boobook,169,2.14%
+Rainbow Bee-eater,Merops ornatus,117,1.48%
+Oriental Dollarbird,Eurystomus orientalis,114,1.44%
+Azure Kingfisher,Ceyx azureus,74,0.94%
+Forest Kingfisher,Todiramphus macleayii,1,0.01%
+Sacred Kingfisher,Todiramphus sanctus,558,7.07%
+Laughing Kookaburra,Dacelo novaeguineae,1729,21.91%
+Nankeen Kestrel,Falco cenchroides,155,1.96%
+Australian Hobby,Falco longipennis,35,0.44%
+Brown Falcon,Falco berigora,77,0.98%
+Black Falcon,Falco subniger,7,0.09%
+Peregrine Falcon,Falco peregrinus,61,0.77%
+Cockatiel,Nymphicus hollandicus,1,0.01%
+Red-tailed Black-Cockatoo,Calyptorhynchus banksii,1,0.01%
+Glossy Black-Cockatoo,Calyptorhynchus lathami,251,3.18%
+Yellow-tailed Black-Cockatoo,Zanda funerea,1452,18.40%
+Gang-gang Cockatoo,Callocephalon fimbriatum,683,8.66%
+Galah,Eolophus roseicapilla,405,5.13%
+Long-billed Corella,Cacatua tenuirostris,17,0.22%
+Little Corella,Cacatua sanguinea,58,0.74%
+Sulphur-crested Cockatoo,Cacatua galerita,2961,37.53%
+Australian King-Parrot,Alisterus scapularis,1589,20.14%
+Red-rumped Parrot,Psephotus haematonotus,114,1.44%
+Bluebonnet,Northiella haematogaster,1,0.01%
+Crimson Rosella,Platycercus elegans,3626,45.96%
+Eastern Rosella,Platycercus eximius,401,5.08%
+Swift Parrot,Lathamus discolor,9,0.11%
+Turquoise Parrot,Neophema pulchella,82,1.04%
+Musk Lorikeet,Glossopsitta concinna,43,0.54%
+Little Lorikeet,Glossopsitta pusilla,252,3.19%
+Rainbow Lorikeet,Trichoglossus moluccanus,1069,13.55%
+Scaly-breasted Lorikeet,Trichoglossus chlorolepidotus,2,0.03%
+Noisy Pitta,Pitta versicolor,1,0.01%
+Superb Lyrebird,Menura novaehollandiae,1939,24.58%
+Green Catbird,Ailuroedus crassirostris,1,0.01%
+Satin Bowerbird,Ptilonorhynchus violaceus,1298,16.45%
+White-throated Treecreeper,Cormobates leucophaea,3924,49.73%
+Red-browed Treecreeper,Climacteris erythrops,768,9.73%
+Brown Treecreeper,Climacteris picumnus,198,2.51%
+Variegated Fairy-wren,Malurus lamberti,1243,15.75%
+Superb Fairy-wren,Malurus cyaneus,1066,13.51%
+Southern Emu-wren,Stipiturus malachurus,169,2.14%
+Black Honeyeater,Sugomel nigrum,1,0.01%
+Scarlet Honeyeater,Myzomela sanguinolenta,356,4.51%
+Painted Honeyeater,Grantiella picta,9,0.11%
+Striped Honeyeater,Plectorhyncha lanceolata,100,1.27%
+Noisy Friarbird,Philemon corniculatus,1411,17.88%
+Little Friarbird,Philemon citreogularis,21,0.27%
+Brown Honeyeater,Lichmera indistincta,11,0.14%
+Crescent Honeyeater,Phylidonyris pyrrhopterus,238,3.02%
+New Holland Honeyeater,Phylidonyris novaehollandiae,3038,38.50%
+White-cheeked Honeyeater,Phylidonyris niger,221,2.80%
+White-eared Honeyeater,Nesoptilotis leucotis,1470,18.63%
+Blue-faced Honeyeater,Entomyzon cyanotis,26,0.33%
+Black-chinned Honeyeater,Melithreptus gularis,67,0.85%
+Brown-headed Honeyeater,Melithreptus brevirostris,526,6.67%
+White-naped Honeyeater,Melithreptus lunatus,1923,24.37%
+Tawny-crowned Honeyeater,Gliciphila melanops,45,0.57%
+Eastern Spinebill,Acanthorhynchus tenuirostris,4150,52.60%
+Crimson Chat,Epthianura tricolor,1,0.01%
+Lewin's Honeyeater,Meliphaga lewinii,1728,21.90%
+Spiny-cheeked Honeyeater,Acanthagenys rufogularis,18,0.23%
+Little Wattlebird,Anthochaera chrysoptera,501,6.35%
+Regent Honeyeater,Anthochaera phrygia,53,0.67%
+Red Wattlebird,Anthochaera carunculata,2116,26.82%
+Singing Honeyeater,Gavicalis virescens,2,0.03%
+Fuscous Honeyeater,Ptilotula fusca,118,1.50%
+White-plumed Honeyeater,Ptilotula penicillata,286,3.62%
+Yellow-faced Honeyeater,Caligavis chrysops,3939,49.92%
+Yellow-tufted Honeyeater,Lichenostomus melanops,1042,13.21%
+Bell Miner,Manorina melanophrys,853,10.81%
+Noisy Miner,Manorina melanocephala,385,4.88%
+Spotted Pardalote,Pardalotus punctatus,3000,38.02%
+Striated Pardalote,Pardalotus striatus,404,5.12%
+Brown Gerygone,Gerygone mouki,1180,14.96%
+White-throated Gerygone,Gerygone olivacea,362,4.59%
+Western Gerygone,Gerygone fusca,26,0.33%
+Weebill,Smicrornis brevirostris,255,3.23%
+Pilotbird,Pycnoptilus floccosus,891,11.29%
+Speckled Warbler,Pyrrholaemus sagittatus,172,2.18%
+Chestnut-rumped Heathwren,Calamanthus pyrrhopygius,240,3.04%
+Rockwarbler,Origma solitaria,894,11.33%
+Yellow-throated Scrubwren,Sericornis citreogularis,411,5.21%
+White-browed Scrubwren,Sericornis frontalis,2755,34.92%
+Large-billed Scrubwren,Sericornis magnirostra,356,4.51%
+Southern Whiteface,Aphelocephala leucopsis,11,0.14%
+Yellow-rumped Thornbill,Acanthiza chrysorrhoa,177,2.24%
+Yellow Thornbill,Acanthiza nana,273,3.46%
+Striated Thornbill,Acanthiza lineata,2143,27.16%
+Brown Thornbill,Acanthiza pusilla,3926,49.76%
+Buff-rumped Thornbill,Acanthiza reguloides,225,2.85%
+Grey-crowned Babbler,Pomatostomus temporalis,34,0.43%
+White-browed Babbler,Pomatostomus superciliosus,55,0.70%
+Varied Sittella,Daphoenositta chrysoptera,253,3.21%
+Black-faced Cuckoo-shrike,Coracina novaehollandiae,842,10.67%
+White-bellied Cuckoo-shrike,Coracina papuensis,96,1.22%
+Common Cicadabird,Edolisoma tenuirostre,141,1.79%
+White-winged Triller,Lalage tricolor,65,0.82%
+Spotted Quail-thrush,Cinclosoma punctatum,291,3.69%
+Gilbert's Whistler,Pachycephala inornata,1,0.01%
+Rufous Whistler,Pachycephala rufiventris,1763,22.34%
+Golden Whistler,Pachycephala pectoralis,2475,31.37%
+Grey Shrike-thrush,Colluricincla harmonica,3130,39.67%
+Crested Shrike-tit,Falcunculus frontatus,540,6.84%
+Eastern Whipbird,Psophodes olivaceus,2425,30.74%
+Australasian Figbird,Sphecotheres vieilloti,7,0.09%
+Olive-backed Oriole,Oriolus sagittatus,565,7.16%
+Pied Currawong,Strepera graculina,3276,41.52%
+Grey Currawong,Strepera versicolor,173,2.19%
+Australian Magpie,Gymnorhina tibicen,1579,20.01%
+Pied Butcherbird,Cracticus nigrogularis,158,2.00%
+Grey Butcherbird,Cracticus torquatus,842,10.67%
+Masked Woodswallow,Artamus personatus,15,0.19%
+White-browed Woodswallow,Artamus superciliosus,46,0.58%
+Dusky Woodswallow,Artamus cyanopterus,323,4.09%
+Black-faced Woodswallow,Artamus cinereus,1,0.01%
+White-breasted Woodswallow,Artamus leucorynchus,1,0.01%
+Spangled Drongo,Dicrurus bracteatus,2,0.03%
+Willie Wagtail,Rhipidura leucophrys,626,7.93%
+Rufous Fantail,Rhipidura rufifrons,560,7.10%
+Grey Fantail,Rhipidura albiscapa,3204,40.61%
+Little Raven,Corvus mellori,43,0.54%
+Australian Raven,Corvus coronoides,1450,18.38%
+Leaden Flycatcher,Myiagra rubecula,628,7.96%
+Satin Flycatcher,Myiagra cyanoleuca,33,0.42%
+Restless Flycatcher,Myiagra inquieta,212,2.69%
+Magpie-lark,Grallina cyanoleuca,348,4.41%
+Spectacled Monarch,Symposiachrus trivirgatus,1,0.01%
+Black-faced Monarch,Monarcha melanopsis,520,6.59%
+White-winged Chough,Corcorax melanorhamphos,303,3.84%
+Rose Robin,Petroica rosea,455,5.77%
+Flame Robin,Petroica phoenicea,73,0.93%
+Scarlet Robin,Petroica boodang,233,2.95%
+Red-capped Robin,Petroica goodenovii,30,0.38%
+Jacky Winter,Microeca fascinans,406,5.15%
+Eastern Yellow Robin,Eopsaltria australis,3433,43.51%
+Pale-yellow Robin,Tregellasia capito,1,0.01%
+Hooded Robin,Melanodryas cucullata,53,0.67%
+Mistletoebird,Dicaeum hirundinaceum,314,3.98%
+Nutmeg Mannikin,Lonchura punctulata,2,0.03%
+Chestnut-breasted Mannikin,Lonchura castaneothorax,1,0.01%
+Beautiful Firetail,Stagonopleura bella,389,4.93%
+Diamond Firetail,Stagonopleura guttata,81,1.03%
+Red-browed Finch,Neochmia temporalis,1378,17.47%
+Plum-headed Finch,Neochmia modesta,7,0.09%
+Zebra Finch,Taeniopygia castanotis,52,0.66%
+Double-barred Finch,Taeniopygia bichenovii,170,2.15%
+House Sparrow,Passer domesticus,69,0.87%
+Australasian Pipit,Anthus novaeseelandiae,84,1.06%
+Common Greenfinch,Chloris chloris,1,0.01%
+European Goldfinch,Carduelis carduelis,3,0.04%
+Horsfield's Bushlark,Mirafra javanica,9,0.11%
+Eurasian Skylark,Alauda arvensis,1,0.01%
+Golden-headed Cisticola,Cisticola exilis,9,0.11%
+Brown Songlark,Cincloramphus cruralis,5,0.06%
+Rufous Songlark,Cincloramphus mathewsi,68,0.86%
+Little Grassbird,Poodytes gramineus,4,0.05%
+Australian Reed-Warbler,Acrocephalus australis,54,0.68%
+White-backed Swallow,Cheramoeca leucosterna,7,0.09%
+Fairy Martin,Petrochelidon ariel,55,0.70%
+Tree Martin,Petrochelidon nigricans,408,5.17%
+Welcome Swallow,Hirundo neoxena,998,12.65%
+Red-whiskered Bulbul,Pycnonotus jocosus,66,0.84%
+Silvereye,Zosterops lateralis,1078,13.66%
+Common Starling,Sturnus vulgaris,82,1.04%
+Common Myna,Acridotheres tristis,125,1.58%
+Bassian Thrush,Zoothera lunulata,156,1.98%
+Common Blackbird,Turdus merula,51,0.65%
+Black Duck-Mallard hybrid,,2,0.03%
+Corella spp,,1,0.01%
+Crow & Raven spp,,16,0.20%
+Wandering Albatross spp,,8,0.10%
+Black-browed Albatross spp,,10,0.13%
+Great-winged Petrel spp,,2,0.03%
+Fairy-wren spp,,9,0.11%
+Fluttering/Hutton's Shearwater spp,,2,0.03%
+Giant-Petrel spp,,1,0.01%
+Brown Goshawk/Collared Sparrowhawk spp,,1,0.01%
+Fairy/Tree Martin spp,,6,0.08%
+Skua spp,,1,0.01%
+Duck spp,,2,0.03%

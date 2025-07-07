@@ -17,9 +17,29 @@ This project aims to match the Birdata (BD) taxonomy to the Atlas of Living Aust
 ## Method
 An iterative approach is taken to matching. Exact matches on either scientific name or common name are resolved first. The residual records are matched using approximate matching techniques. BD is taken as the source and is matched against ALA. A translation table is produced in which BD names are matched against ALA names. The translation table is tested on a subset of BD data and reviewed for accuracy.
 
+## Data Sources
+
+### Birdata
+Species names for a KBA can be obtained from BD (https://birdata.birdlife.org.au/) by
+* Select 'Key Biodiversity Areas' in 'Area Layer' in the left panel
+* Select the relevant KBA in 'Area'
+* Leave all other settings as defaults
+* Click the download icon next to 'Species List' in the right panel
+* Repeat this process for each KBA 
+* Rename the files to identify them with their respective KBAs
+* Move the files into the './Input/BD' folder in this project
+
+
+
 # Setup
+```{r setup}
+# Libraries
+library(stringdist)
+```
+
 
 # Data Preparation
+
 
 # Match Taxonomies
 
