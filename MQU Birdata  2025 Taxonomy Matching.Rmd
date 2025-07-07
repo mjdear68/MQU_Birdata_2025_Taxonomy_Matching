@@ -29,7 +29,16 @@ Species names for a KBA can be obtained from BD (https://birdata.birdlife.org.au
 * Rename the files to identify them with their respective KBAs
 * Move the files into the './Input/BD' folder in this project
 
-
+### ALA
+Species names for a KBA can be obtained from ALA (https://ala.org.au/) by
+* Opening the 'Spatial Analysis' from the 'Search and Analyse' menu at the top of the home page
+* Upload the shape file for a KBA from the './Shapefiles' directory in this project
+* Open 'Area Report - interactive' from the 'Tools' menu at the top of the left panel
+* Scroll down and click the 'List' button next 'Birds' 
+* Click the 'Download' button once the list opens
+* Repeat this process for each KBA 
+* Rename the files to identify them with their respective KBAs
+* Move the files into the './Input/ALA' folder in this project
 
 # Setup
 ```{r setup}
