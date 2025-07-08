@@ -100,9 +100,10 @@ readDIR <- function(path,
 	
 	out <- lapply(list_of_files, function(x){
 	  df <- read_csv(x)
-	  df <- df[,cols]
+	  # df <- df[,cols]
+	  df <- df |> select(cols)
 	}) |>
-	bind_rows()
+	bind_rows() |> distinct()
 	
 	# Fix column names
 	out <- out |>
@@ -113,11 +114,21 @@ readDIR <- function(path,
 ```
 
 ```{r read in the species files}
-# BD_species <- readDIR(path = "./Input/BD/", cols=1:3, str_replace_pattern = c("[\\s-]" = "_"))
-# ALA_species <- readDIR(path = "./Input/ALA/", cols=c("Species Name", "Vernacular Name"))
 BD_species <- readDIR(path="./Input/BD/", cols=c(1:2)) |> relocate(2,1)
 
 ALA_species <- readDIR(path="./Input/ALA/", cols=c("Species Name", "Vernacular Name")) |> rename("Scientific_Name"="Species_Name", "Common_Name"="Vernacular_Name")
+```
+
+Check the data frame structures, missing values etc.
+```{r data frame check}
+summary(BD_species)
+str(BD_species)
+sapply(colnames(BD_species), function(x) sum(is.na(BD_species[,x])))
+
+summary(ALA_species)
+str(ALA_species)
+sapply(colnames(ALA_species), function(x) sum(is.na(ALA_species[,x])))
+
 ```
 
 
