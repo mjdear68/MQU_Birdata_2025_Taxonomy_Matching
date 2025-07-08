@@ -56,33 +56,6 @@ library(tidyverse)
 
 # Data Preparation
 Read the directories of CSV's into data frames.
-```{r function to read a directory of files into a data frame}
-readDIR <- function(path, 
-                    skip=0, 
-                    delim=",",
-                    cols,
-                    na_strings=c("", "NA"),
-                    str_replace_pattern=c(" " = "_", "-" = "_", "\\[" = "", "\\]" = "")
-){
-  # Read the directory of files
-	list_of_files <- list.files(path = path,
-		recursive = TRUE,
-		pattern = "\\.csv$",
-		full.names = TRUE)
-	
-	# Combine to form final data frame
-	df <- readr::read_delim(list_of_files, 
-		id = "file_name", 
-		skip = skip, 
-		delim = delim, 
-		col_select = cols,
-		na = na_strings, 
-		name_repair = function(n){str_replace_all(n, str_replace_pattern)} 
-	)
-	
-	return(df)
-}
-```
 
 ```{r function to read a directory of files into a data frame}
 readDIR <- function(path, 
