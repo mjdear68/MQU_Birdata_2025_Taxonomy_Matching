@@ -102,14 +102,6 @@ sapply(colnames(ALA_species), function(x) sum(is.na(ALA_species[,x])))
 
 
 # Match Taxonomies
-Create columns in BD_species to hold the ALA values for Scientific_Name and Common_Name. Create a column for the type of match: "exact" or "approximate".
-
-```{r BD_species ALA columns}
-BD_species <- BD_species |>
-  mutate(Scientific_Name_ALA="", Common_Name_ALA="", Match_Type="")
-```
-
-Now perform the matching: exact followed by approximate.
 
 ## Exact Match - Scientific Name
 ```{r join 1}
