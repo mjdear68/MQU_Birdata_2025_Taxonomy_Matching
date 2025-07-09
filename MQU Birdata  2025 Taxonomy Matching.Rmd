@@ -158,11 +158,18 @@ am1 <- tibble(j2_resid |> select(Scientific_Name_BD, Common_Name_BD),
        ALA_species[amatch(j2_resid$Common_Name_BD, ALA_species$Common_Name, maxDist = 5),] |> select(Scientific_Name_ALA = Scientific_Name, Common_Name_ALA = Common_Name)
 )
 
+
+# Matched records
+am1_match <- am1 |> filter(!is.na(Scientific_Name_ALA)) |>
+  mutate(Match_Type = "Approximate - Common Name")
+# Unmatched records
+am1_resid <- am1 |> filter(is.na(Scientific_Name_ALA)) |>
+  mutate(Match_Type = "Unmatched")
 ```
 
 ## Collapse to make final translation table
 ```{r make translation table}
-l <- list(j1_match, j2_match)
+l <- list(j1_match, j2_match, am1_match, am1_resid)
 
 df_trans <- bind_rows(l)
 ```
