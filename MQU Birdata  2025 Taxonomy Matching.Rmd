@@ -126,7 +126,9 @@ j1 <- left_join(BD_species |> mutate(across(everything(), str_to_lower)) ,
                 keep = TRUE) |>
     rename(all_of(new_col_names))
 
-j1_match <- j1 |> filter(!is.na(Scientific_Name_ALA)) # Matched records
+# Matched records
+j1_match <- j1 |> filter(!is.na(Scientific_Name_ALA)) |>
+  mutate(Match_Type = "Exact - Scientific Name")
 j1_resid <- j1 |> filter(is.na(Scientific_Name_ALA)) # Unmatched records; pass to next level
 ```
 
@@ -139,13 +141,17 @@ j2 <- left_join(j1_resid |> mutate(across(everything(), str_to_lower)) ,
   select("Scientific_Name_BD", "Common_Name_BD", "Scientific_Name", "Common_Name") |>
   rename("Scientific_Name_ALA" = "Scientific_Name", "Common_Name_ALA" = "Common_Name")
 
-j2_match <- j2 |> filter(!is.na(Scientific_Name_ALA)) # Matched records
+# Matched records
+j2_match <- j2 |> filter(!is.na(Scientific_Name_ALA)) |>
+  mutate(Match_Type = "Exact - Common Name")
 j2_resid <- j2 |> filter(is.na(Scientific_Name_ALA)) # Unmatched records; pass to next level
 ```
 
 ## Collapse to make final translation table
 ```{r make translation table}
+l <- list(j1_match, j2_match)
 
+df_trans <- bind_rows(l)
 ```
 
 
