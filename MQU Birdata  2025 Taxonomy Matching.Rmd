@@ -88,16 +88,24 @@ BD_species <- readDIR(path="./Input/BD/", cols=c(1:2)) |> relocate(2,1)
 ALA_species <- readDIR(path="./Input/ALA/", cols=c("Species_Name", "Vernacular_Name")) |> rename("Scientific_Name"="Species_Name", "Common_Name"="Vernacular_Name")
 ```
 
-Check the data frame structures, missing values etc.
-```{r data frame check}
-summary(BD_species)
-str(BD_species)
-sapply(colnames(BD_species), function(x) sum(is.na(BD_species[,x])))
+Function to give a data frame summary, structure, and missing values in each column.
+```{r funtion to data frame information}
+# Need to use cat() not print() for newlines; https://stackoverflow.com/a/4072218/8299958
+df_info <- function(df){
+  cat("Summary:\n")
+  print(summary(df))
+  cat("\n") 
+  cat("Structure:\n")
+  str(df)
+  cat("\n")
+  cat("NA:\n")
+  sapply(df, function(x) sum(is.na(x)))
+}
+```
 
-summary(ALA_species)
-str(ALA_species)
-sapply(colnames(ALA_species), function(x) sum(is.na(ALA_species[,x])))
-
+```{r}
+df_info(BD_species)
+df_info(ALA_species)
 ```
 
 
@@ -121,6 +129,11 @@ lev1 <- left_join(BD_species,
 lev1_match <- lev1 |> filter(!is.na(Scientific_Name_ALA)) |>
   mutate(Match_Type = "Exact - Scientific Name")
 lev1_resid <- lev1 |> filter(is.na(Scientific_Name_ALA)) # Unmatched records; pass to next level
+
+# Print information about the data frames
+df_info(lev1)
+df_info(lev1_match)
+df_info(lev1_resid)
 ```
 
 ## Exact Match - Common Name
@@ -136,7 +149,19 @@ lev2 <- left_join(lev1_resid,
 lev2_match <- lev2 |> filter(!is.na(Scientific_Name_ALA)) |>
   mutate(Match_Type = "Exact - Common Name")
 lev2_resid <- lev2 |> filter(is.na(Scientific_Name_ALA)) # Unmatched records; pass to next level
+
+# Print information about the data frames
+df_info(lev2)
+df_info(lev2_match)
+df_info(lev2_resid)
 ```
+
+The length of lev1_resid = 219, whereas length of lev2 = 228, indicating there are some duplicated records. Check for duplicates.
+
+```{r}
+
+```
+
 
 ## Approximate Match - Common Name
 Approximate matching on scientific name proved ineffective compared with approximate matching on commo name.
@@ -154,11 +179,19 @@ lev3_match <- lev3 |> filter(!is.na(Scientific_Name_ALA)) |>
 # Unmatched records
 lev3_resid <- lev3 |> filter(is.na(Scientific_Name_ALA)) |>
   mutate(Match_Type = "Unmatched")
+
+# Print information about the data frames
+df_info(lev3)
+df_info(lev3_match)
+df_info(lev3_resid)
 ```
 
 ## Collapse to make final translation table
 ```{r make translation table}
 df_trans <- bind_rows(list(lev1_match, lev2_match, lev3_match, lev3_resid))
+
+# Print information about the data frames
+df_info(df_trans)
 ```
 
 ## Write to CSV
