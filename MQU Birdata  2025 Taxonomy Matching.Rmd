@@ -111,16 +111,14 @@ BD_species <- BD_species |>
 
 Now perform the matching: exact followed by approximate.
 
-```{r}
+## Exact Match - Scientific Name
+```{r join 1}
 # new_name = old_name
 new_col_names <- c("Scientific_Name_BD"="Scientific_Name.x", 
                    "Common_Name_BD"="Common_Name.x",
                    "Scientific_Name_ALA"="Scientific_Name.y", 
                    "Common_Name_ALA"="Common_Name.y")
-```
 
-
-```{r join 1}
 # Convert to lower case before joining
 j1 <- left_join(BD_species |> mutate(across(everything(), str_to_lower)) , 
                 ALA_species |> mutate(across(everything(), str_to_lower)), 
@@ -132,15 +130,23 @@ j1_match <- j1 |> filter(!is.na(Scientific_Name_ALA)) # Matched records
 j1_resid <- j1 |> filter(is.na(Scientific_Name_ALA)) # Unmatched records; pass to next level
 ```
 
-```{r}
-BD_species |> mutate(across(everything(), str_to_lower)) |> head()
-```
-
-
+## Exact Match - Common Name
 ```{r join 2}
-j2 <- left_join(join_sci_name, ALA_species, by=c("Common_Name.x", "Common_name"), keep = TRUE)
+j2 <- left_join(j1_resid |> mutate(across(everything(), str_to_lower)) , 
+                ALA_species |> mutate(across(everything(), str_to_lower)), 
+                by = c("Common_Name_BD" = "Common_Name"),
+                keep = TRUE) |>
+  select("Scientific_Name_BD", "Common_Name_BD", "Scientific_Name", "Common_Name") |>
+  rename("Scientific_Name_ALA" = "Scientific_Name", "Common_Name_ALA" = "Common_Name")
+
+j2_match <- j2 |> filter(!is.na(Scientific_Name_ALA)) # Matched records
+j2_resid <- j2 |> filter(is.na(Scientific_Name_ALA)) # Unmatched records; pass to next level
 ```
 
+## Collapse to make final translation table
+```{r make translation table}
+
+```
 
 
 
