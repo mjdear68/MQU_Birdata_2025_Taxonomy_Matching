@@ -161,6 +161,10 @@ lev3_resid <- lev3 |> filter(is.na(Scientific_Name_ALA)) |>
 df_trans <- bind_rows(list(lev1_match, lev2_match, lev3_match, lev3_resid))
 ```
 
+## Write to CSV
+```{r write to csv}
+df_trans |> write.csv("./Output/translation_table.csv", row.names = FALSE)
+```
 
 
 # Accuracy Assessment
