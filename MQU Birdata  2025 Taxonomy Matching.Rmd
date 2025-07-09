@@ -120,8 +120,14 @@ new_col_names <- c("Scientific_Name_BD"="Scientific_Name.x",
                    "Common_Name_ALA"="Common_Name.y")
 
 # Convert to lower case before joining
-j1 <- left_join(BD_species |> mutate(across(everything(), str_to_lower)) , 
-                ALA_species |> mutate(across(everything(), str_to_lower)), 
+# j1 <- left_join(BD_species |> mutate(across(everything(), str_to_lower)) , 
+#                 ALA_species |> mutate(across(everything(), str_to_lower)), 
+#                 by="Scientific_Name", 
+#                 keep = TRUE) |>
+#     rename(all_of(new_col_names))
+
+j1 <- left_join(BD_species, 
+                ALA_species, 
                 by="Scientific_Name", 
                 keep = TRUE) |>
     rename(all_of(new_col_names))
@@ -134,8 +140,15 @@ j1_resid <- j1 |> filter(is.na(Scientific_Name_ALA)) # Unmatched records; pass t
 
 ## Exact Match - Common Name
 ```{r join 2}
-j2 <- left_join(j1_resid |> mutate(across(everything(), str_to_lower)) , 
-                ALA_species |> mutate(across(everything(), str_to_lower)), 
+# j2 <- left_join(j1_resid |> mutate(across(everything(), str_to_lower)) , 
+#                 ALA_species |> mutate(across(everything(), str_to_lower)), 
+#                 by = c("Common_Name_BD" = "Common_Name"),
+#                 keep = TRUE) |>
+#   select("Scientific_Name_BD", "Common_Name_BD", "Scientific_Name", "Common_Name") |>
+#   rename("Scientific_Name_ALA" = "Scientific_Name", "Common_Name_ALA" = "Common_Name")
+
+j2 <- left_join(j1_resid, 
+                ALA_species, 
                 by = c("Common_Name_BD" = "Common_Name"),
                 keep = TRUE) |>
   select("Scientific_Name_BD", "Common_Name_BD", "Scientific_Name", "Common_Name") |>
@@ -146,6 +159,13 @@ j2_match <- j2 |> filter(!is.na(Scientific_Name_ALA)) |>
   mutate(Match_Type = "Exact - Common Name")
 j2_resid <- j2 |> filter(is.na(Scientific_Name_ALA)) # Unmatched records; pass to next level
 ```
+
+
+## Approximate Match - Scientific Name
+```{r}
+
+```
+
 
 ## Collapse to make final translation table
 ```{r make translation table}
