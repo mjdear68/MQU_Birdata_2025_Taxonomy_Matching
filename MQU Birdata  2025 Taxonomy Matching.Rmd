@@ -104,28 +104,28 @@ sapply(colnames(ALA_species), function(x) sum(is.na(ALA_species[,x])))
 # Match Taxonomies
 
 ## Exact Match - Scientific Name
-```{r join 1}
+```{r Matching level 1}
 # new_name = old_name
 new_col_names <- c("Scientific_Name_BD"="Scientific_Name.x", 
                    "Common_Name_BD"="Common_Name.x",
                    "Scientific_Name_ALA"="Scientific_Name.y", 
                    "Common_Name_ALA"="Common_Name.y")
 
-j1 <- left_join(BD_species, 
+lev1 <- left_join(BD_species, 
                 ALA_species, 
                 by="Scientific_Name", 
                 keep = TRUE) |>
     rename(all_of(new_col_names))
 
 # Matched records
-j1_match <- j1 |> filter(!is.na(Scientific_Name_ALA)) |>
+lev1_match <- lev1 |> filter(!is.na(Scientific_Name_ALA)) |>
   mutate(Match_Type = "Exact - Scientific Name")
-j1_resid <- j1 |> filter(is.na(Scientific_Name_ALA)) # Unmatched records; pass to next level
+lev1_resid <- lev1 |> filter(is.na(Scientific_Name_ALA)) # Unmatched records; pass to next level
 ```
 
 ## Exact Match - Common Name
-```{r join 2}
-j2 <- left_join(j1_resid, 
+```{r matching level 2}
+lev2 <- left_join(lev1_resid, 
                 ALA_species, 
                 by = c("Common_Name_BD" = "Common_Name"),
                 keep = TRUE) |>
@@ -133,45 +133,32 @@ j2 <- left_join(j1_resid,
   rename("Scientific_Name_ALA" = "Scientific_Name", "Common_Name_ALA" = "Common_Name")
 
 # Matched records
-j2_match <- j2 |> filter(!is.na(Scientific_Name_ALA)) |>
+lev2_match <- lev2 |> filter(!is.na(Scientific_Name_ALA)) |>
   mutate(Match_Type = "Exact - Common Name")
-j2_resid <- j2 |> filter(is.na(Scientific_Name_ALA)) # Unmatched records; pass to next level
-```
-
-
-## Approximate Match - Scientific Name
-
-```{r amatch 1}
-# https://statisticsglobe.com/fuzzy-matching-r
-
-am1 <- tibble(j2_resid |> select(Scientific_Name_BD, Common_Name_BD),
-       ALA_species[amatch(j2_resid$Scientific_Name_BD, ALA_species$Scientific_Name, maxDist = 10),] |> select(Scientific_Name_ALA = Scientific_Name, Common_Name_ALA = Common_Name)
-)
-
+lev2_resid <- lev2 |> filter(is.na(Scientific_Name_ALA)) # Unmatched records; pass to next level
 ```
 
 ## Approximate Match - Common Name
-```{r amatch 1}
+Approximate matching on scientific name proved ineffective compared with approximate matching on commo name.
+```{r matching level 3}
 # https://statisticsglobe.com/fuzzy-matching-r
 
-am1 <- tibble(j2_resid |> select(Scientific_Name_BD, Common_Name_BD),
-       ALA_species[amatch(j2_resid$Common_Name_BD, ALA_species$Common_Name, maxDist = 5),] |> select(Scientific_Name_ALA = Scientific_Name, Common_Name_ALA = Common_Name)
+lev3 <- tibble(lev2_resid |> select(Scientific_Name_BD, Common_Name_BD),
+       ALA_species[amatch(lev2_resid$Common_Name_BD, ALA_species$Common_Name, maxDist = 5),] |> select(Scientific_Name_ALA = Scientific_Name, Common_Name_ALA = Common_Name)
 )
 
 
 # Matched records
-am1_match <- am1 |> filter(!is.na(Scientific_Name_ALA)) |>
+lev3_match <- lev3 |> filter(!is.na(Scientific_Name_ALA)) |>
   mutate(Match_Type = "Approximate - Common Name")
 # Unmatched records
-am1_resid <- am1 |> filter(is.na(Scientific_Name_ALA)) |>
+lev3_resid <- lev3 |> filter(is.na(Scientific_Name_ALA)) |>
   mutate(Match_Type = "Unmatched")
 ```
 
 ## Collapse to make final translation table
 ```{r make translation table}
-l <- list(j1_match, j2_match, am1_match, am1_resid)
-
-df_trans <- bind_rows(l)
+df_trans <- bind_rows(list(lev1_match, lev2_match, lev3_match, lev3_resid))
 ```
 
 
