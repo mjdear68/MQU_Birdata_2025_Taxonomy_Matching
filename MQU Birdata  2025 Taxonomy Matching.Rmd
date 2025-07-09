@@ -140,10 +140,25 @@ j2_resid <- j2 |> filter(is.na(Scientific_Name_ALA)) # Unmatched records; pass t
 
 
 ## Approximate Match - Scientific Name
-```{r}
+
+```{r amatch 1}
+# https://statisticsglobe.com/fuzzy-matching-r
+
+am1 <- tibble(j2_resid |> select(Scientific_Name_BD, Common_Name_BD),
+       ALA_species[amatch(j2_resid$Scientific_Name_BD, ALA_species$Scientific_Name, maxDist = 10),] |> select(Scientific_Name_ALA = Scientific_Name, Common_Name_ALA = Common_Name)
+)
 
 ```
 
+## Approximate Match - Common Name
+```{r amatch 1}
+# https://statisticsglobe.com/fuzzy-matching-r
+
+am1 <- tibble(j2_resid |> select(Scientific_Name_BD, Common_Name_BD),
+       ALA_species[amatch(j2_resid$Common_Name_BD, ALA_species$Common_Name, maxDist = 5),] |> select(Scientific_Name_ALA = Scientific_Name, Common_Name_ALA = Common_Name)
+)
+
+```
 
 ## Collapse to make final translation table
 ```{r make translation table}
