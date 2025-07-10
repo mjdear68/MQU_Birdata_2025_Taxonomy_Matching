@@ -55,7 +55,7 @@ library(tidyverse)
 
 ## Custom Functions
 Function to give a data frame summary, structure, missing values, and number of duplicates in each column.
-```{r funtion to data frame information}
+```{r funtion to print data frame information}
 # Need to use cat() not print() for newlines; https://stackoverflow.com/a/4072218/8299958
 df_info <- function(df){
   cat("Summary:\n")
@@ -164,11 +164,19 @@ df_info(lev2_resid)
 The length of lev1_resid = 219, whereas length of lev2 = 228, indicating there are some duplicated records. Check for duplicates.
 
 ```{r}
-df_info(as.data.frame(BD_species$Scientific_Name))
-sum(duplicated(lev2$Scientific_Name_BD))
+df_info(BD_species)
+df_info(lev2)
+
+# Data frame of duplicates, ignoring NA
+dups <- lev2 |>
+  group_by(Scientific_Name_BD) |>
+  filter(n() > 1 & !is.na(Scientific_Name_BD)) |>
+  ungroup()
+
 ```
 
-There are 
+There are 9 duplicates in Scientific_Name_BD. Manual inspection indicates this is due to the same common name mapping to multiple subspecies in the ALA taxonomy. These Scientific_Name_BD records will need to be reviewed manually and reduced to the appropriate subspecies.
+
 ## Approximate Match - Common Name
 Approximate matching on scientific name proved ineffective compared with approximate matching on commo name.
 ```{r matching level 3}
@@ -196,7 +204,7 @@ df_info(lev3_resid)
 ```{r make translation table}
 df_trans <- bind_rows(list(lev1_match, lev2_match, lev3_match, lev3_resid))
 
-# Print information about the data frames
+# Print information about the data frame
 df_info(df_trans)
 ```
 
@@ -205,5 +213,8 @@ df_info(df_trans)
 df_trans |> write.csv("./Output/translation_table.csv", row.names = FALSE)
 ```
 
+## Manual Checks Required
+* Review all records with Match_Type = "Approximate - Common Name" and Match_Type = "Unmatched". Drop or re-map the records as required.
+* Review all records with duplicated Scientific_Name_BD. Merging the ALA taxonomy into BD data will be inaccurate or fail with duplicates in Scientific_Name_BD.
 
 # Accuracy Assessment
