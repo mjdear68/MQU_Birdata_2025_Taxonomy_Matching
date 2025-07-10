@@ -53,11 +53,27 @@ library(stringdist)
 library(tidyverse)
 ```
 
+## Custom Functions
+Function to give a data frame summary, structure, missing values, and number of duplicates in each column.
+```{r funtion to data frame information}
+# Need to use cat() not print() for newlines; https://stackoverflow.com/a/4072218/8299958
+df_info <- function(df){
+  cat("Summary:\n")
+  print(summary(df))
+  cat("\n") 
+  cat("Structure:\n")
+  str(df)
+  cat("\n")
+  cat("NA:\n")
+  print(sapply(df, function(x) sum(is.na(x))))
+  cat("\n")
+  cat("Duplicates (ignoring NA):\n")
+  print(sapply(df, function(x) sum(duplicated(na.omit(x)))))
+}
+```
 
-# Data Preparation
-Read the directories of CSV's into data frames.
-
-```{r function to read a directory of files into a data frame}
+Function to read a directory of delimited files into a data frame.
+```{r function to read a directory of delimited files into a data frame}
 readDIR <- function(path, 
                     skip=0, 
                     delim=",",
@@ -82,26 +98,15 @@ readDIR <- function(path,
 }
 ```
 
+# Data Preparation
+Read the directories of CSV's into data frames.
+
 ```{r read in the species files}
 BD_species <- readDIR(path="./Input/BD/", cols=c(1:2)) |> relocate(2,1)
 
 ALA_species <- readDIR(path="./Input/ALA/", cols=c("Species_Name", "Vernacular_Name")) |> rename("Scientific_Name"="Species_Name", "Common_Name"="Vernacular_Name")
 ```
 
-Function to give a data frame summary, structure, and missing values in each column.
-```{r funtion to data frame information}
-# Need to use cat() not print() for newlines; https://stackoverflow.com/a/4072218/8299958
-df_info <- function(df){
-  cat("Summary:\n")
-  print(summary(df))
-  cat("\n") 
-  cat("Structure:\n")
-  str(df)
-  cat("\n")
-  cat("NA:\n")
-  sapply(df, function(x) sum(is.na(x)))
-}
-```
 
 ```{r}
 df_info(BD_species)
@@ -159,10 +164,11 @@ df_info(lev2_resid)
 The length of lev1_resid = 219, whereas length of lev2 = 228, indicating there are some duplicated records. Check for duplicates.
 
 ```{r}
-
+df_info(as.data.frame(BD_species$Scientific_Name))
+sum(duplicated(lev2$Scientific_Name_BD))
 ```
 
-
+There are 
 ## Approximate Match - Common Name
 Approximate matching on scientific name proved ineffective compared with approximate matching on commo name.
 ```{r matching level 3}
