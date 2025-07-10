@@ -23,7 +23,7 @@ An iterative approach is taken to matching. Exact matches on either scientific n
 
 ### Birdata
 
-Species names for a KBA can be obtained from BD (<https://birdata.birdlife.org.au/>) by 
+Species names for a KBA can be obtained from BD (<https://birdata.birdlife.org.au/>) by following these steps:
 
 * Select 'Key Biodiversity Areas' in 'Area Layer' in the left panel 
 * Select the relevant KBA in 'Area' 
@@ -35,9 +35,9 @@ Species names for a KBA can be obtained from BD (<https://birdata.birdlife.org.a
 
 ### ALA
 
-Species names for a KBA can be obtained from ALA (<https://ala.org.au/>) by 
+Species names for a KBA can be obtained from ALA (<https://ala.org.au/>) by following these steps: 
 
-* Opening the 'Spatial Analysis' from the 'Search and Analyse' menu at the top of the home page 
+* Open the 'Spatial Analysis' from the 'Search and Analyse' menu at the top of the home page 
 * Upload the shape file for a KBA from the './Shapefiles' directory in this project 
 * Open 'Area Report - interactive' from the 'Tools' menu at the top of the left panel 
 * Scroll down and click the 'List' button next 'Birds' 
@@ -237,4 +237,13 @@ Open "./Output/translation_table.csv" in a spreadsheet to complete the following
 * Review all records with Match_Type = "Approximate - Common Name" and Match_Type = "Unmatched". Drop or re-map the records as required.
 * Review all records with duplicated Scientific_Name_BD. Merging the ALA taxonomy into BD data will be inaccurate or fail with duplicates in Scientific_Name_BD.
 
-# Accuracy Assessment
+# Usage Example
+The following code will merge the "Scientific_Name_ALA" and "Common_Name_ALA" from the translation table (`df_trans`) into the Birdata dataset (`BD`).
+
+```{r merge ALA names}
+BD_merge <- left_join(BD, df_trans |> select(Scientific_Name_BD, Scientific_Name_ALA, Common_Name_ALA),
+                by = c(Scientific_Name, Scientific_Name_BD) # Scientific_Name is the key from BD
+                )
+```
+
+
