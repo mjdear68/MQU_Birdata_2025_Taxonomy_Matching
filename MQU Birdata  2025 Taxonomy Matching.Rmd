@@ -1,5 +1,5 @@
 ---
-title: "MQU Birdata  2025 Taxonomy Matching"
+title: "MQU Birdata 2025 Taxonomy Matching"
 author: "Michael Dear"
 date: "2025-07-07"
 output: html_document
@@ -12,39 +12,47 @@ knitr::opts_chunk$set(echo = TRUE)
 ```
 
 # Introduction
+
 This project aims to match the Birdata (BD) taxonomy to the Atlas of Living Australia (ALA) taxonomy. The scope is all bird species identified in either BD or ALA for the given study area. The overall goal is to produce a dataset in which BD data is incorporated into the ALA data using ALA scientific and common names.
 
 ## Method
+
 An iterative approach is taken to matching. Exact matches on either scientific name or common name are resolved first. The residual records are matched using approximate matching techniques. BD is taken as the source and is matched against ALA. A translation table is produced in which BD names are matched against ALA names. The translation table is tested on a subset of BD data and reviewed for accuracy.
 
 ## Data Sources
 
 ### Birdata
-Species names for a KBA can be obtained from BD (https://birdata.birdlife.org.au/) by
-* Select 'Key Biodiversity Areas' in 'Area Layer' in the left panel
-* Select the relevant KBA in 'Area'
-* Leave all other settings as defaults
-* Click the download icon next to 'Species List' in the right panel
+
+Species names for a KBA can be obtained from BD (<https://birdata.birdlife.org.au/>) by 
+
+* Select 'Key Biodiversity Areas' in 'Area Layer' in the left panel 
+* Select the relevant KBA in 'Area' 
+* Leave all other settings as defaults 
+* Click the download icon next to 'Species List' in the right panel 
 * Repeat this process for each KBA 
-* Rename the files to identify them with their respective KBAs
+* Rename the files to identify them with their respective KBAs 
 * Move the files into the './Input/BD' folder in this project
 
 ### ALA
-Species names for a KBA can be obtained from ALA (https://ala.org.au/) by
-* Opening the 'Spatial Analysis' from the 'Search and Analyse' menu at the top of the home page
-* Upload the shape file for a KBA from the './Shapefiles' directory in this project
-* Open 'Area Report - interactive' from the 'Tools' menu at the top of the left panel
+
+Species names for a KBA can be obtained from ALA (<https://ala.org.au/>) by 
+
+* Opening the 'Spatial Analysis' from the 'Search and Analyse' menu at the top of the home page 
+* Upload the shape file for a KBA from the './Shapefiles' directory in this project 
+* Open 'Area Report - interactive' from the 'Tools' menu at the top of the left panel 
 * Scroll down and click the 'List' button next 'Birds' 
-* Click the 'Download' button once the list opens
+* Click the 'Download' button once the list opens 
 * Repeat this process for each KBA 
-* Rename the files to identify them with their respective KBAs
+* Rename the files to identify them with their respective KBAs 
 * Move the files into the './Input/ALA' folder in this project
 
 ## References
-* "Fuzzy Matching in R (Example) | Approximate String, Name & Text Search | adist(), agrep() & amatch()", https://youtu.be/txHkNr29w20?si=XSQiEHiplcBrwc0x, for approximate matching using `stringdist::amatch` 
+
+* "Fuzzy Matching in R (Example) \| Approximate String, Name & Text Search \| adist(), agrep() & amatch()", <https://youtu.be/txHkNr29w20?si=XSQiEHiplcBrwc0x>, for approximate matching using `stringdist::amatch`
 
 # Setup
-```{r setup}
+
+```{r libraries, parameters, etc}
 # Clear the environment
 rm(list=ls())
 
@@ -54,7 +62,9 @@ library(tidyverse)
 ```
 
 ## Custom Functions
+
 Function to give a data frame summary, structure, missing values, and number of duplicates in each column.
+
 ```{r funtion to print data frame information}
 # Need to use cat() not print() for newlines; https://stackoverflow.com/a/4072218/8299958
 df_info <- function(df){
@@ -73,6 +83,7 @@ df_info <- function(df){
 ```
 
 Function to read a directory of delimited files into a data frame.
+
 ```{r function to read a directory of delimited files into a data frame}
 readDIR <- function(path, 
                     skip=0, 
@@ -99,6 +110,7 @@ readDIR <- function(path,
 ```
 
 # Data Preparation
+
 Read the directories of CSV's into data frames.
 
 ```{r read in the species files}
@@ -107,16 +119,15 @@ BD_species <- readDIR(path="./Input/BD/", cols=c(1:2)) |> relocate(2,1)
 ALA_species <- readDIR(path="./Input/ALA/", cols=c("Species_Name", "Vernacular_Name")) |> rename("Scientific_Name"="Species_Name", "Common_Name"="Vernacular_Name")
 ```
 
-
 ```{r}
 df_info(BD_species)
 df_info(ALA_species)
 ```
 
-
 # Match Taxonomies
 
 ## Exact Match - Scientific Name
+
 ```{r Matching level 1}
 # new_name = old_name
 new_col_names <- c("Scientific_Name_BD"="Scientific_Name.x", 
@@ -142,6 +153,7 @@ df_info(lev1_resid)
 ```
 
 ## Exact Match - Common Name
+
 ```{r matching level 2}
 lev2 <- left_join(lev1_resid, 
                 ALA_species, 
@@ -173,12 +185,15 @@ dups <- lev2 |>
   filter(n() > 1 & !is.na(Scientific_Name_BD)) |>
   ungroup()
 
+dups
 ```
 
 There are 9 duplicates in Scientific_Name_BD. Manual inspection indicates this is due to the same common name mapping to multiple subspecies in the ALA taxonomy. These Scientific_Name_BD records will need to be reviewed manually and reduced to the appropriate subspecies.
 
 ## Approximate Match - Common Name
+
 Approximate matching on scientific name proved ineffective compared with approximate matching on commo name.
+
 ```{r matching level 3}
 # https://statisticsglobe.com/fuzzy-matching-r
 
@@ -201,6 +216,7 @@ df_info(lev3_resid)
 ```
 
 ## Collapse to make final translation table
+
 ```{r make translation table}
 df_trans <- bind_rows(list(lev1_match, lev2_match, lev3_match, lev3_resid))
 
@@ -209,11 +225,15 @@ df_info(df_trans)
 ```
 
 ## Write to CSV
+
 ```{r write to csv}
 df_trans |> write.csv("./Output/translation_table.csv", row.names = FALSE)
 ```
 
 ## Manual Checks Required
+
+Open "./Output/translation_table.csv" in a spreadsheet to complete the following checks:
+
 * Review all records with Match_Type = "Approximate - Common Name" and Match_Type = "Unmatched". Drop or re-map the records as required.
 * Review all records with duplicated Scientific_Name_BD. Merging the ALA taxonomy into BD data will be inaccurate or fail with duplicates in Scientific_Name_BD.
 
