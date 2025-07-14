@@ -2,8 +2,10 @@
 title: "MQU Birdata 2025 Taxonomy Matching"
 author: "Michael Dear"
 date: "2025-07-07"
-output: html_document
-editor_options: 
+output:
+  pdf_document: default
+  html_document: default
+editor_options:
   chunk_output_type: console
 ---
 
